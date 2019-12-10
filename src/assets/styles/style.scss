@@ -1,0 +1,20 @@
+$mainFont: Trocchi;
+
+$backgroundColor: #DBD5CA;
+$primaryColor: red;
+$secondaryColor: pink;
+
+@mixin container($width, $margin, $padding) {
+  width: $width;
+  margin: $margin;
+  padding: $padding;
+}
+@mixin flex($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin colors ($background, $font){
+  background-color: $background;
+  color: $font;
+}
