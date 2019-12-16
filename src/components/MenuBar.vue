@@ -2,9 +2,9 @@
   <nav id="id">
     <p @click="toggleMenu()" :class="{ menuHeading: menuIsOpen}">menu</p>
     <ul>
-      <li>about</li>
-      <li>work</li>
-      <li>resume</li>
+      <li :class="{ listHeading: menuIsOpen}">about.</li>
+      <li :class="{ listHeading: menuIsOpen}">work.</li>
+      <li :class="{ listHeading: menuIsOpen}">resume.</li>
     </ul>
   </nav>
 </template>
@@ -48,19 +48,37 @@ export default {
     // margin-top: 40px;
     font-size: 1.7em;
     // color: red;
-    // transform: rotate(-90deg);
+    transition-property: transform;
+    transform: rotate(-90deg);
     transform-origin: left top;
-    &:hover {
-      cursor: grab;
-    }
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      cursor: grab;    
+      // transform: rotate(180);
+    }
   }
   .menuHeading {
-    transform: none;
     color: pink;
+    transform: rotate(-90deg);
+    animation-name: test;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    // animation-direction: reverse;
+  }
+  .listHeading {
+    display: block;
+    animation-name: test;
+    animation-duration: 2s;
+    transform-origin: left top;
+
+  }
+  @keyframes test {
+    from {transform: rotate(-90deg); opacity: 0%;}
+    to {transform: rotate(0deg); opacity: 100%;}
   }
   li {
-    // display: none;
+    display: none;
     margin: 100px 0;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 

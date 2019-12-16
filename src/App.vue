@@ -16,13 +16,23 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/styles/style.scss';
+ 
 body {
   margin: 0;
   padding: 0;
   background-color: #DBD5CA;
+  scroll-behavior: smooth;
+
 }
 #app {
-  font-family: 'Trocchi';
+  // mainFont
+  font-family: $mainFont;
+    // font-family: $mainFont;
+  // font-family: 'Josefin Sans', sans-serif;
+  // font-family: 'Lilita One', cursive;
+  // font-family: 'Archivo Black', sans-serif;
+  // font-family: 'Hammersmith One', sans-serif;
   letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

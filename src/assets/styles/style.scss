@@ -1,4 +1,8 @@
-$mainFont: Trocchi;
+@font-face {
+  font-family: futura;
+  src: url("/public/Futura.ttf");
+}
+$mainFont: futura;
 
 $backgroundColor: #DBD5CA;
 $primaryColor: red;
@@ -18,3 +22,4 @@ $secondaryColor: pink;
   background-color: $background;
   color: $font;
 }
+

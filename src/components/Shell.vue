@@ -5,6 +5,8 @@
     <p class="menu">menu</p> -->
     <Greeting />
     <About />
+    <Work />
+    <Resume />
     <Spin />
   </main>
 </template>
@@ -13,6 +15,8 @@ import MenuBar from './MenuBar'
 import Greeting from './Greeting'
 import Spin from './Spin'
 import About from './About'
+import Work from './Work'
+import Resume from './Resume'
 
 export default {
   name: 'Shell',
@@ -20,14 +24,16 @@ export default {
     MenuBar,
     Greeting,
     Spin,
-    About
+    About,
+    Work,
+    Resume
   }
 }
 </script>
 <style lang="scss" scoped>
 .shell {
   // background-color: #e4dcd1;
-  padding: 20px;
+  padding: 0 150px;
   // background-color: #cdd2ce;
   iframe {
     // transform: rotate3d(-1, -1, -1, 0.2turn);
