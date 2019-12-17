@@ -9,12 +9,18 @@
   </nav>
 </template>
 <script>
+/* eslint-disable */
+
 export default {
   name: 'MenuBar',
+  props: ['activateLink'],
   data: function() {
     return {
       menuIsOpen: false
     }
+  },
+  mounted() {
+    console.log('from menu component',this.activateLink)
   },
   methods: {
     toggleMenu() {

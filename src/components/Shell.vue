@@ -1,16 +1,18 @@
 <template>
   <main class="shell">
-    <MenuBar />
+    <MenuBar :activateLink="setActive" />
     <!-- <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0Yxoavh5qJV" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     <p class="menu">menu</p> -->
     <Greeting />
-    <About />
-    <Work />
-    <Resume />
+    <About :show="isShown" id="about"  />
+    <Work id="work" />
+    <Resume id="cv" />
     <Spin />
   </main>
 </template>
 <script>
+/* eslint-disable */
+
 import MenuBar from './MenuBar'
 import Greeting from './Greeting'
 import Spin from './Spin'
@@ -27,7 +29,42 @@ export default {
     About,
     Work,
     Resume
+  },
+  data: function() {
+    return {
+      isShown: [],
+      setActive: []
+    }
+  },
+  methods: {
+    scroll(e) {
+      const about = document.getElementById('about').getBoundingClientRect()
+      const work = document.getElementById('work').getBoundingClientRect()
+
+      // const aboutPosition = about.getBoundingClientRect()
+      // const workPosition = work.getBoundingClientRect()
+      // console.log(about)
+      if ( about.top < window.innerHeight && about.bottom > 0 ) {
+        this.isShown = 'about'
+        this.setActive = 'about'
+        console.log(this.isShown)
+      }
+
+
+      // const cont = document.getElementById('work')
+      // const rect = cont.getBoundingClientRect()
+
+      // const top = rect.top
+      // console.log(top)
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.scroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.scroll)
   }
+
 }
 </script>
 <style lang="scss" scoped>
