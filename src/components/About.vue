@@ -19,8 +19,14 @@
   </article>
 </template>
 <script>
+/* eslint-disable */
+
 export default {
-  
+  name: 'about',
+  props: ['show'],
+  created() {
+    console.log('from about component', this.show)
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -42,7 +48,7 @@ article {
     width: 90%;
     // visibility: hidden;
     // animation-play-state: paused;
-    // animation-name: fadeInUp;
+    animation: fadeInUp 5s ease-in-out;
     // margin: 100px 0;
     .introducing {
       font-size: 1.3em,
@@ -96,17 +102,17 @@ article {
   transform: none;
   visibility: visible;
 }
-// @keyframes fadeInUp {
-// 	0% {
-// 		opacity: 0;
-// 		transform: translateY(20px);
-// 	}
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+	transform: translateY(50px);
+	}
 
-// 	100% {
-// 		opacity: 1;
-// 		transform: translateY(0);
-// 	}
-// }
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 // @-webkit-keyframes fadeInUp {
 // 	0% {
 // 		opacity: 0;
