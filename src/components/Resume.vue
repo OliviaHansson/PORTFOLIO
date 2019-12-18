@@ -1,18 +1,23 @@
 <template>
-  <section>
+  <article :class="{'active': visible}">
     <h1>RESUME.</h1>
-  </section>
+  </article>
 </template>
 <script>
 export default {
-  name: 'Resume'
-  
+  name: 'Resume',
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
 @import '../assets/styles/style.scss';
 
-section {
+article {
   @include container(calc(100% - 100px), 0, 50px);
   border: 1px solid black;
   height: 80vh;

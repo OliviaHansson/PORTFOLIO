@@ -28,11 +28,6 @@ body {
 #app {
   // mainFont
   font-family: $mainFont;
-    // font-family: $mainFont;
-  // font-family: 'Josefin Sans', sans-serif;
-  // font-family: 'Lilita One', cursive;
-  // font-family: 'Archivo Black', sans-serif;
-  // font-family: 'Hammersmith One', sans-serif;
   letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

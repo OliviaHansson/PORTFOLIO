@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <article :class="{'active': visible}">
     <h1>Work.</h1>
     <div class="scrollContainer">
       <div class="card">
@@ -16,18 +16,23 @@
       </div>
     </div>
 
-  </section>
+  </article>
 </template>
 <script>
 export default {
-  name: 'Work'
-  
+  name: 'Work',
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
 @import '../assets/styles/style.scss';
 
-section {
+article {
   @include container(calc(100% - 100px), 0, 50px);
   height: 100vh;
   border: 1px solid black;

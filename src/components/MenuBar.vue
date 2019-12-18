@@ -2,9 +2,9 @@
   <nav id="id">
     <p @click="toggleMenu()" :class="{ menuHeading: menuIsOpen}">menu</p>
     <ul>
-      <li :class="{ listHeading: menuIsOpen}">about.</li>
-      <li :class="{ listHeading: menuIsOpen}">work.</li>
-      <li :class="{ listHeading: menuIsOpen}">resume.</li>
+      <li :class="{ listHeading: menuIsOpen}"><a id="aboutMenu" style="text-decoration: none" href="#about">about.</a></li>
+      <li :class="{ listHeading: menuIsOpen}"><a id="workMenu" href="#work">work.</a></li>
+      <li :class="{ listHeading: menuIsOpen}"><a id="cvMenu" href="#cv" active>resume.</a></li>
     </ul>
   </nav>
 </template>
@@ -14,13 +14,46 @@
 export default {
   name: 'MenuBar',
   props: ['activateLink'],
-  data: function() {
-    return {
-      menuIsOpen: false
+  // props: {
+  //   activateLink: {
+  //     type: ,
+  //     default: false
+  //   }
+  // },
+  watch: { 
+    activateLink: function(newVal, oldVal) { // watch it
+      const about = document.getElementById('aboutMenu')
+      const work = document.getElementById('workMenu')
+      const cv = document.getElementById('cvMenu')
+
+      about.classList.remove('test')
+      work.classList.remove('test')
+      cv.classList.remove('test')
+
+      switch(newVal) {
+        case 'about':
+          about.classList.add('test')
+          break
+        case 'work':
+          work.classList.add('test')
+          break
+        case 'cv':
+          cv.classList.add('test')
+          break
+      }
+
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal)
     }
   },
+  data: function() {
+    return {
+      menuIsOpen: false,
+      isActive: this.activateLink
+    }
+  },
+  created() {},
   mounted() {
-    console.log('from menu component',this.activateLink)
+    console.log('from menu component',this.isActive)
   },
   methods: {
     toggleMenu() {
@@ -79,6 +112,9 @@ export default {
     transform-origin: left top;
 
   }
+  .activeLink {
+    border-bottom: 2px solid black;
+  }
   @keyframes test {
     from {transform: rotate(-90deg); opacity: 0%;}
     to {transform: rotate(0deg); opacity: 100%;}
@@ -91,6 +127,31 @@ export default {
     &:hover {
       color: red;
     }
+  a:link {
+    text-decoration: none;
+    color: black;
   }
+
+  a:visited {
+    text-decoration: none;
+        color: black;
+
+  }
+
+  // a:hover {
+  //   text-decoration: underline;
+  //       color: black;
+
+  // }
+
+  a:active {
+    text-decoration: underline;
+    color: red;
+
+  }
+  }
+}
+.test {
+  color: red;
 }
 </style>

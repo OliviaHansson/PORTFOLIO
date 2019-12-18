@@ -1,7 +1,7 @@
 <template>
-  <article>
+  <article :class="{'active': visible}">
     <h1>About.</h1>
-    <div class="aboutMe fade-in-section is-visible">
+    <div class="aboutMe">
       <p class="introducing">
         My name is<span> Olivia Hansson</span> I'm a <span>web developer</span> based in 
         Stcokholm, Sweden. sed do eiusmod tempor incididunt ut labore et dolore. 
@@ -23,9 +23,14 @@
 
 export default {
   name: 'about',
-  props: ['show'],
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  },
   created() {
-    console.log('from about component', this.show)
+    console.log('from about component', this.visible)
   }
 }
 </script>
@@ -39,21 +44,16 @@ article {
 
   border: 1px solid black;
   height: 120vh;
-  // padding: 0 100px;
 
-  // padding-left: 150px;
   display: block;
+
   .aboutMe {
     border: 3px dotted pink;
     width: 90%;
-    // visibility: hidden;
-    // animation-play-state: paused;
-    animation: fadeInUp 5s ease-in-out;
-    // margin: 100px 0;
+    display: none;
+
     .introducing {
       font-size: 1.3em,
-
-   
     }
     span:nth-child(1) {
       font-size: 3em;
@@ -61,8 +61,6 @@ article {
       padding-left: 100px;
       color: white;
       margin: 20px 0;
-    
-
     }
     span:nth-child(2) {
       font-size: 1em;
@@ -72,7 +70,6 @@ article {
     }
   }
   .myMusic {
-
     background-color: red;
     position: absolute;
     right: -150px;
@@ -88,38 +85,34 @@ article {
     // align-items: center;
   }
 
-}
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+    will-change: opacity, visibility;
+  }
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+  @keyframes fadeInUp {
+  	0% {
+  		opacity: 0;
+  	transform: translateY(50px);
+  	}
 
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(20vh);
-  visibility: hidden;
-  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
-  will-change: opacity, visibility;
+  	100% {
+  		opacity: 1;
+  		transform: translateY(0);
+  	}
+  }
+  &.active {
+    .aboutMe {
+      display: block;
+      animation: fadeInUp 3s ease-in-out;
+    }
+  }
 }
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-}
-@keyframes fadeInUp {
-	0% {
-		opacity: 0;
-	transform: translateY(50px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-// @-webkit-keyframes fadeInUp {
-// 	0% {
-// 		opacity: 0;
-// 		-webkit-transform: translateY(20px);
-// 	}	100% {
-// 		opacity: 1;
-// 		-webkit-transform: translateY(0);
-// 	}
-// }
 </style>
