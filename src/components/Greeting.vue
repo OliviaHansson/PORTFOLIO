@@ -48,7 +48,7 @@ section {
     position: relative;
 
     }
-        animation: typewriter 2s steps(30);
+    animation: typewriter 2s steps(30);
 
   }
   h1 span {
