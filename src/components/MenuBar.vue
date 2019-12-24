@@ -2,9 +2,9 @@
   <nav id="id">
     <p @click="toggleMenu()" :class="{ menuHeading: menuIsOpen}">menu</p>
     <ul>
-      <li :class="{ listHeading: menuIsOpen}"><a id="aboutMenu" style="text-decoration: none" href="#about">about.</a></li>
-      <li :class="{ listHeading: menuIsOpen}"><a id="workMenu" href="#work">work.</a></li>
-      <li :class="{ listHeading: menuIsOpen}"><a id="cvMenu" href="#cv" active>resume.</a></li>
+      <li id="aboutMenu" :class="{ listHeading: menuIsOpen}">about.</li>
+      <li id="workMenu" :class="{ listHeading: menuIsOpen}">work.</li>
+      <li id="cvMenu" :class="{ listHeading: menuIsOpen}">resume.</li>
     </ul>
   </nav>
 </template>

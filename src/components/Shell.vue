@@ -1,8 +1,6 @@
 <template>
   <main class="shell">
     <MenuBar :activateLink="isShown" />
-    <!-- <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0Yxoavh5qJV" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    <p class="menu">menu</p> -->
     <Greeting />
     <About :visible="this.isShown === 'about'" id="about"  />
     <Work :visible="this.isShown === 'work'" id="work" />
